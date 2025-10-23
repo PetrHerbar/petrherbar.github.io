@@ -239,9 +239,9 @@ class BubbleSystem {
     
     let bubbleCount;
     if (isMobile) {
-      bubbleCount = isLowEnd ? 0 : 3;
+      bubbleCount = isLowEnd ? 0 : 7;
     } else {
-      bubbleCount = isLowEnd ? 3 : 40;
+      bubbleCount = isLowEnd ? 7 : 40;
     }
     
     const sizes = ['bubble-small', 'bubble-medium', 'bubble-large', 'bubble-extra-large'];
@@ -1070,6 +1070,7 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
 
 
 
