@@ -204,6 +204,265 @@ class CartManager {
 // Initialize cart manager
 const cartManager = new CartManager();
 
+// Bubble System
+class BubbleSystem {
+  constructor() {
+    this.container = qs('#bubbleContainer');
+    this.bubbles = [];
+    this.mouse = { x: 0, y: 0 };
+    this.animationId = null;
+    this.isActive = false;
+    
+    if (this.container) {
+      this.init();
+    }
+  }
+
+  init() {
+    this.createBubbles();
+    this.bindEvents();
+    this.startAnimation();
+  }
+
+  createBubbles() {
+    // Adjust bubble count based on screen size and device performance
+    const isMobile = window.innerWidth < 768;
+    const isLowEnd = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
+    
+    let bubbleCount;
+    if (isMobile) {
+      bubbleCount = isLowEnd ? 15 : 25;
+    } else {
+      bubbleCount = isLowEnd ? 25 : 40;
+    }
+    
+    const sizes = ['bubble-small', 'bubble-medium', 'bubble-large', 'bubble-extra-large'];
+    
+    for (let i = 0; i < bubbleCount; i++) {
+      const bubble = this.createBubble(sizes[Math.floor(Math.random() * sizes.length)]);
+      this.bubbles.push(bubble);
+      this.container.appendChild(bubble.element);
+    }
+  }
+
+  createBubble(sizeClass) {
+    const element = document.createElement('div');
+    element.className = `bubble ${sizeClass} bubble-floating`;
+    
+    // Add random glow intensity
+    const glowIntensity = Math.random() * 0.3 + 0.1; // 0.1 to 0.4
+    element.style.setProperty('--glow-intensity', glowIntensity);
+    
+    const bubble = {
+      element: element,
+      x: Math.random() * (this.container.offsetWidth - 100),
+      y: Math.random() * (this.container.offsetHeight - 100),
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      rotation: Math.random() * 360, // Random initial rotation
+      rotationSpeed: (Math.random() - 0.5) * 2, // Random rotation speed
+      size: this.getElementSize(sizeClass),
+      repulsionRadius: this.getRepulsionRadius(sizeClass),
+      originalX: 0,
+      originalY: 0,
+      isRepelling: false
+    };
+
+    element.style.left = bubble.x + 'px';
+    element.style.top = bubble.y + 'px';
+    element.style.transform = `rotate(${bubble.rotation}deg)`;
+    
+    return bubble;
+  }
+
+  getElementSize(sizeClass) {
+    const sizes = {
+      'bubble-small': 20,
+      'bubble-medium': 35,
+      'bubble-large': 50,
+      'bubble-extra-large': 70
+    };
+    return sizes[sizeClass] || 35;
+  }
+
+  getRepulsionRadius(sizeClass) {
+    const radii = {
+      'bubble-small': 80,
+      'bubble-medium': 100,
+      'bubble-large': 120,
+      'bubble-extra-large': 140
+    };
+    return radii[sizeClass] || 100;
+  }
+
+  bindEvents() {
+    // Find the hero section to track mouse movement
+    const heroSection = this.container.closest('.hero');
+    
+    if (heroSection) {
+      // Mouse tracking on hero section
+      heroSection.addEventListener('mousemove', (e) => {
+        const rect = this.container.getBoundingClientRect();
+        this.mouse.x = e.clientX - rect.left;
+        this.mouse.y = e.clientY - rect.top;
+      });
+
+      // Touch tracking for mobile
+      heroSection.addEventListener('touchmove', (e) => {
+        const rect = this.container.getBoundingClientRect();
+        const touch = e.touches[0];
+        this.mouse.x = touch.clientX - rect.left;
+        this.mouse.y = touch.clientY - rect.top;
+      }, { passive: true });
+
+      // Mouse leave - reset repulsion
+      heroSection.addEventListener('mouseleave', () => {
+        this.mouse.x = -1000;
+        this.mouse.y = -1000;
+      });
+    }
+
+    // Window resize - reposition bubbles
+    window.addEventListener('resize', () => {
+      this.handleResize();
+    });
+  }
+
+  startAnimation() {
+    if (this.animationId) return;
+    this.isActive = true;
+    this.animate();
+  }
+
+  stopAnimation() {
+    this.isActive = false;
+    if (this.animationId) {
+      cancelAnimationFrame(this.animationId);
+      this.animationId = null;
+    }
+  }
+
+  animate() {
+    if (!this.isActive) return;
+
+    // Performance optimization: reduce update frequency on slower devices
+    const isLowEnd = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
+    const updateFrequency = isLowEnd ? 2 : 1; // Update every 2nd frame on low-end devices
+    
+    if (!this.frameCount) this.frameCount = 0;
+    this.frameCount++;
+
+    if (this.frameCount % updateFrequency === 0) {
+      this.bubbles.forEach(bubble => {
+        this.updateBubble(bubble);
+      });
+    }
+
+    this.animationId = requestAnimationFrame(() => this.animate());
+  }
+
+  updateBubble(bubble) {
+    // Calculate distance to mouse
+    const dx = bubble.x - this.mouse.x;
+    const dy = bubble.y - this.mouse.y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    // Apply repulsion force if mouse is close
+    if (distance < bubble.repulsionRadius && distance > 0) {
+      const force = (bubble.repulsionRadius - distance) / bubble.repulsionRadius;
+      const repulsionStrength = force * 0.3;
+      
+      bubble.vx += (dx / distance) * repulsionStrength;
+      bubble.vy += (dy / distance) * repulsionStrength;
+      bubble.isRepelling = true;
+    } else {
+      bubble.isRepelling = false;
+    }
+
+    // Apply natural floating movement (zero gravity)
+    bubble.vx += (Math.random() - 0.5) * 0.01;
+    bubble.vy += (Math.random() - 0.5) * 0.01;
+
+    // Apply friction
+    bubble.vx *= 0.98;
+    bubble.vy *= 0.98;
+
+    // Update position
+    bubble.x += bubble.vx;
+    bubble.y += bubble.vy;
+
+    // Update rotation
+    bubble.rotation += bubble.rotationSpeed;
+    if (bubble.rotation >= 360) bubble.rotation -= 360;
+    if (bubble.rotation < 0) bubble.rotation += 360;
+
+    // Boundary collision with soft bounce
+    const margin = bubble.size / 2;
+    if (bubble.x < margin) {
+      bubble.x = margin;
+      bubble.vx = Math.abs(bubble.vx) * 0.5;
+    } else if (bubble.x > this.container.offsetWidth - margin) {
+      bubble.x = this.container.offsetWidth - margin;
+      bubble.vx = -Math.abs(bubble.vx) * 0.5;
+    }
+
+    if (bubble.y < margin) {
+      bubble.y = margin;
+      bubble.vy = Math.abs(bubble.vy) * 0.5;
+    } else if (bubble.y > this.container.offsetHeight - margin) {
+      bubble.y = this.container.offsetHeight - margin;
+      bubble.vy = -Math.abs(bubble.vy) * 0.5;
+    }
+
+    // Update DOM
+    bubble.element.style.left = bubble.x + 'px';
+    bubble.element.style.top = bubble.y + 'px';
+    bubble.element.style.transform = `rotate(${bubble.rotation}deg)`;
+
+    // Update CSS classes for repulsion effect
+    if (bubble.isRepelling) {
+      bubble.element.classList.add('bubble-repelling');
+    } else {
+      bubble.element.classList.remove('bubble-repelling');
+    }
+  }
+
+  handleResize() {
+    // Reposition bubbles that are outside the new container bounds
+    this.bubbles.forEach(bubble => {
+      const margin = bubble.size / 2;
+      if (bubble.x > this.container.offsetWidth - margin) {
+        bubble.x = this.container.offsetWidth - margin;
+      }
+      if (bubble.y > this.container.offsetHeight - margin) {
+        bubble.y = this.container.offsetHeight - margin;
+      }
+    });
+  }
+
+  destroy() {
+    this.stopAnimation();
+    if (this.container) {
+      this.container.innerHTML = '';
+    }
+    this.bubbles = [];
+  }
+}
+
+// Cleanup function for page navigation
+function cleanupBubbleSystem() {
+  if (bubbleSystem) {
+    bubbleSystem.destroy();
+    bubbleSystem = null;
+  }
+}
+
+// Cleanup on page unload
+window.addEventListener('beforeunload', cleanupBubbleSystem);
+
+// Initialize bubble system
+let bubbleSystem = null;
+
 // Year in footer
 const yearEl = qs('#year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -379,6 +638,14 @@ window.addEventListener('DOMContentLoaded', () => {
   const pageIntro = qs('main .container > p');
   if (pageHeading) gsap.from(pageHeading, { opacity: 0, y: 18, duration: 0.6, ease: 'power2.out', delay: loader ? 0.25 : 0 });
   if (pageIntro) gsap.from(pageIntro, { opacity: 0, y: 18, duration: 0.6, ease: 'power2.out', delay: loader ? 0.32 : 0 });
+
+  // Initialize bubble system on all pages with hero sections
+  if (qs('#bubbleContainer')) {
+    // Delay bubble system initialization to avoid conflicts with page load animations
+    setTimeout(() => {
+      bubbleSystem = new BubbleSystem();
+    }, 1000);
+  }
 
   // Initialize product detail page if we're on that page
   if (window.location.pathname.includes('product-detail.html')) {

@@ -117,6 +117,119 @@ body {
 .leaf-2 { top: 40%; right: 0; background: radial-gradient(closest-side, rgba(132,134,58,.24), rgba(132,134,58,0)); }
 .leaf-3 { bottom: -5%; left: 35%; background: radial-gradient(closest-side, rgba(255,255,255,.12), rgba(255,255,255,0)); }
 
+/* Bubble System */
+.bubble-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), rgba(207,184,141,0.15), rgba(132,134,58,0.08));
+  backdrop-filter: blur(1px);
+  box-shadow: 
+    inset 0 0 20px rgba(255,255,255,0.15),
+    0 0 20px rgba(207,184,141,0.2),
+    0 0 40px rgba(207,184,141,0.1),
+    0 0 60px rgba(255,255,255,0.05);
+  transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+  will-change: transform;
+  filter: brightness(1.1) saturate(1.2);
+}
+
+.bubble::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.3), transparent 70%);
+  opacity: var(--glow-intensity, 0.2);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.bubble::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.4), transparent);
+  filter: blur(1px);
+}
+
+.bubble-small {
+  width: 20px;
+  height: 20px;
+}
+
+.bubble-medium {
+  width: 35px;
+  height: 35px;
+}
+
+.bubble-large {
+  width: 50px;
+  height: 50px;
+}
+
+.bubble-extra-large {
+  width: 70px;
+  height: 70px;
+}
+
+/* Bubble animation states */
+.bubble-floating {
+  animation: float 8s ease-in-out infinite;
+}
+
+.bubble-repelling {
+  transition: transform 0.15s ease-out, box-shadow 0.2s ease;
+  box-shadow: 
+    inset 0 0 20px rgba(255,255,255,0.2),
+    0 0 30px rgba(207,184,141,0.4),
+    0 0 50px rgba(207,184,141,0.2),
+    0 0 80px rgba(255,255,255,0.1) !important;
+  filter: brightness(1.3) saturate(1.4) !important;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(180deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(270deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: var(--glow-intensity, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    opacity: calc(var(--glow-intensity, 0.2) * 1.5);
+    transform: scale(1.1);
+  }
+}
+
 /* Sections */
 .section { padding: clamp(56px, 7vw, 96px) 0; }
 .grid { display: grid; gap: 1.25rem; }
