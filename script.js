@@ -213,15 +213,23 @@ class BubbleSystem {
     this.animationId = null;
     this.isActive = false;
     
+    console.log('BubbleSystem constructor called');
+    console.log('Container found:', !!this.container);
+    
     if (this.container) {
+      console.log('Container dimensions:', this.container.offsetWidth, 'x', this.container.offsetHeight);
       this.init();
+    } else {
+      console.error('Bubble container not found!');
     }
   }
 
   init() {
+    console.log('Initializing bubble system...');
     this.createBubbles();
     this.bindEvents();
     this.startAnimation();
+    console.log('Bubble system initialization complete');
   }
 
   createBubbles() {
@@ -238,11 +246,13 @@ class BubbleSystem {
     
     const sizes = ['bubble-small', 'bubble-medium', 'bubble-large', 'bubble-extra-large'];
     
+    console.log(`Creating ${bubbleCount} bubbles...`);
     for (let i = 0; i < bubbleCount; i++) {
       const bubble = this.createBubble(sizes[Math.floor(Math.random() * sizes.length)]);
       this.bubbles.push(bubble);
       this.container.appendChild(bubble.element);
     }
+    console.log(`Created ${this.bubbles.length} bubbles successfully`);
   }
 
   createBubble(sizeClass) {
@@ -460,8 +470,47 @@ function cleanupBubbleSystem() {
 // Cleanup on page unload
 window.addEventListener('beforeunload', cleanupBubbleSystem);
 
+// Fallback initialization for when GSAP might not be available
+document.addEventListener('DOMContentLoaded', () => {
+  // Small delay to ensure all scripts are loaded
+  setTimeout(() => {
+    if (!bubbleSystem && qs('#bubbleContainer')) {
+      console.log('Fallback bubble system initialization');
+      initializeBubbleSystem();
+    }
+  }, 1000);
+});
+
 // Initialize bubble system
 let bubbleSystem = null;
+
+// Robust bubble system initialization
+function initializeBubbleSystem() {
+  // Try multiple times to ensure the container is available
+  let attempts = 0;
+  const maxAttempts = 10;
+  
+  function tryInit() {
+    attempts++;
+    const container = qs('#bubbleContainer');
+    
+    if (container) {
+      console.log('Bubble container found, initializing bubble system...');
+      // Delay to ensure page is fully loaded
+      setTimeout(() => {
+        bubbleSystem = new BubbleSystem();
+        console.log('Bubble system initialized successfully');
+      }, 500);
+    } else if (attempts < maxAttempts) {
+      console.log(`Bubble container not found, retrying... (${attempts}/${maxAttempts})`);
+      setTimeout(tryInit, 200);
+    } else {
+      console.log('Bubble container not found after maximum attempts');
+    }
+  }
+  
+  tryInit();
+}
 
 // Year in footer
 const yearEl = qs('#year');
@@ -640,12 +689,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (pageIntro) gsap.from(pageIntro, { opacity: 0, y: 18, duration: 0.6, ease: 'power2.out', delay: loader ? 0.32 : 0 });
 
   // Initialize bubble system on all pages with hero sections
-  if (qs('#bubbleContainer')) {
-    // Delay bubble system initialization to avoid conflicts with page load animations
-    setTimeout(() => {
-      bubbleSystem = new BubbleSystem();
-    }, 1000);
-  }
+  initializeBubbleSystem();
 
   // Initialize product detail page if we're on that page
   if (window.location.pathname.includes('product-detail.html')) {
@@ -1026,6 +1070,5 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
-
 
 
