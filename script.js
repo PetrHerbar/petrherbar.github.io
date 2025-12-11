@@ -76,19 +76,6 @@ const products = {
       'Přírodní bylinné složení'
     ]
   },
-  'tonikum': {
-    name: 'Tonikum na pleť',
-    description: 'Osvěžující tonikum s bylinnými extrakty pro čištění a zklidnění pleti. Dokončuje proces čištění a připravuje pleť na další péči.',
-    price: '279 Kč',
-    image: 'assets/Products/TonikumNaPleť.png',
-    features: [
-      'Bylinné extrakty',
-      'Vyrovnává pH pleti',
-      'Osvěžuje a zklidňuje',
-      'Bez alkoholu',
-      'Vhodné pro denní použití'
-    ]
-  },
 
 };
 
@@ -1084,6 +1071,7 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
 
 
 
