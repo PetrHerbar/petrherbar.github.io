@@ -5,9 +5,9 @@ function qsa(selector, scope) { return Array.from((scope || document).querySelec
 // Product data structure
 const products = {
   'facetoner': {
-    name: 'Face Toner',
-    description: 'Osvěžující tonikum pro čištění a zklidnění pleti s přírodními extrakty. Ideální pro každodenní péči o pleť.',
-    price: '299 Kč',
+    name: 'Moony',
+    description: 'Osvěžující tonikum, které dodává pleti svěžest a rovnováhu. Měsíček zklidňuje citlivá místa a podporuje přirozenou obnovu pokožky.',
+    price: '359 Kč',
     image: 'assets/Products/FaceToner.png',
     features: [
       'Přírodní bylinné extrakty',
@@ -18,8 +18,20 @@ const products = {
     ]
   },
   'krem': {
-    name: 'Hydratační krém',
-    description: 'Intenzivně hydratující krém s přírodními oleji pro každodenní péči o pleť. Poskytuje dlouhodobou hydrataci a ochranu.',
+    name: 'Rosa',
+    description: 'Odličovací voda, jemně čistí bez vysoušení. Růže pomáhá pleť zklidnit a hydratovat, díky čemuž se dobře hodí pro citlivou a suchou pleť.',
+    price: '359 Kč',
+    image: 'assets/Products/Krem.png',
+    features: [
+      'Dvoufázová emulze',
+      '24hodinová hydratace',
+      'Antioxidanty z rostlin',
+      'Vhodné pro všechny typy pleti'
+    ]
+  },
+  'krem': {
+    name: 'Levander',
+    description: 'Hydratační krém vyživuje a zanechává pleť jemnou. Levandule podporuje hydrataci a obnovuje kožní bariéru.',
     price: '459 Kč',
     image: 'assets/Products/Krem.png',
     features: [
@@ -31,55 +43,37 @@ const products = {
     ]
   },
   'lahvac': {
-    name: 'Přírodní olej',
-    description: 'Výživný tělový olej s jemnou vůní pro hydrataci a péči o pokožku celého těla. Bohatý na vitamíny a minerály.',
+    name: 'Makarnika',
+    description: 'Krém na ruce s arnikou a makademiovým olejem vyživuje a zklidňuje pokožku rukou, zanechává je jemné a chráněné.',
     price: '389 Kč',
     image: 'assets/Products/lahvac.jpg',
     features: [
       '100% přírodní složení',
-      'Bohatý na vitamíny A, E',
+      'Bohatý na vitamíny',
       'Rychle se vstřebává',
-      'Jemná přírodní vůně',
-      'Vhodný pro masáže'
-    ]
-  },
-  'masticka': {
-    name: 'Přírodní mastička',
-    description: 'Léčivá mast s bylinkami pro zklidnění podrážděné pokožky a drobná poranění. Tradiční receptura s moderním přístupem.',
-    price: '199 Kč',
-    image: 'assets/Products/masticka.jpg',
-    features: [
-      'Tradiční bylinné receptury',
-      'Antibakteriální účinky',
-      'Rychlé hojení',
-      'Vhodné pro děti',
-      'Bez chemických konzervantů'
+      'Jemná přírodní vůně'
     ]
   },
   'pudr': {
-    name: 'Přírodní pudr',
-    description: 'Jemný pudr z přírodních minerálů pro dokonalé zakrytí a matný vzhled pleti. Poskytuje přirozený a zdravý vzhled.',
-    price: '329 Kč',
+    name: 'Lichi',
+    description: 'Balzám na rty, který osvěžuje rty a dodává jim přirozenou pružnost.',
+    price: '179 Kč',
     image: 'assets/Products/Pudr.png',
     features: [
-      'Přírodní minerální složení',
       'Dlouhodobé zakrytí',
       'Matný vzhled',
-      'Vhodné pro citlivou pleť',
       'Bez škodlivých chemikálií'
     ]
   },
   'pudr2': {
-    name: 'Pudr s broskvovým tónem',
-    description: 'Teplý broskvový pudr pro přirozený a zdravý vzhled s jemným leskem. Ideální pro letní make-up a denní použití.',
-    price: '349 Kč',
+    name: 'Minty',
+    description: 'Balzám na rty, který chladivě zklidňuje a přináší pocit lehkosti.',
+    price: '179 Kč',
     image: 'assets/Products/Pudr2.png',
     features: [
-      'Teplý broskvový tón',
       'Jemný přírodní lesk',
       'Dlouhodobé zakrytí',
-      'Vhodné pro světlou pleť',
-      'Přírodní minerální složení'
+      'Přírodní bylinné složení'
     ]
   },
   'tonikum': {
@@ -1090,5 +1084,6 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
 
 
