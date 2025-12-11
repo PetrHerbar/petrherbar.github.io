@@ -46,7 +46,7 @@ const products = {
     name: 'Makarnika',
     description: 'Krém na ruce s arnikou a makademiovým olejem vyživuje a zklidňuje pokožku rukou, zanechává je jemné a chráněné.',
     price: '389 Kč',
-    image: 'assets/Products/makarnika.png',
+    image: 'assets/Products/makarnika2.png',
     features: [
       '100% přírodní složení',
       'Bohatý na vitamíny',
@@ -1084,6 +1084,7 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
 
 
 
