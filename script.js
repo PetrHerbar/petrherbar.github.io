@@ -44,7 +44,7 @@ const products = {
   },
   'lahvac': {
     name: 'Makarnika',
-    description: 'Krém na ruce s arnikou a makademiovým olejem vyživuje a zklidňuje pokožku rukou, zanechává je jemné a chráněné.',
+    description: 'Krém na ruce s arnikou a makadamovým olejem vyživuje a zklidňuje pokožku rukou, zanechává je jemné a chráněné.',
     price: '389 Kč',
     image: 'assets/Products/makarnika2.png',
     features: [
@@ -1084,6 +1084,7 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
 
 
 
