@@ -8,7 +8,7 @@ const products = {
     name: 'Moony',
     description: 'Osvěžující tonikum, které dodává pleti svěžest a rovnováhu. Měsíček zklidňuje citlivá místa a podporuje přirozenou obnovu pokožky.',
     price: '359 Kč',
-    image: 'assets/Products/FaceToner.png',
+    image: 'assets/Products/moony.png',
     features: [
       'Přírodní bylinné extrakty',
       'Vhodné pro citlivou pleť',
@@ -33,7 +33,7 @@ const products = {
     name: 'Levander',
     description: 'Hydratační krém vyživuje a zanechává pleť jemnou. Levandule podporuje hydrataci a obnovuje kožní bariéru.',
     price: '459 Kč',
-    image: 'assets/Products/masticka.png',
+    image: 'assets/Products/masticka.jpg',
     features: [
       'Přírodní hydratační oleje',
       '24hodinová hydratace',
@@ -46,7 +46,7 @@ const products = {
     name: 'Makarnika',
     description: 'Krém na ruce s arnikou a makademiovým olejem vyživuje a zklidňuje pokožku rukou, zanechává je jemné a chráněné.',
     price: '389 Kč',
-    image: 'assets/Products/lahvac.jpg',
+    image: 'assets/Products/makarnika.png',
     features: [
       '100% přírodní složení',
       'Bohatý na vitamíny',
@@ -1084,6 +1084,7 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
 
 
 
