@@ -21,7 +21,7 @@ const products = {
     name: 'Rosa',
     description: 'Odličovací voda, jemně čistí bez vysoušení. Růže pomáhá pleť zklidnit a hydratovat, díky čemuž se dobře hodí pro citlivou a suchou pleť.',
     price: '359 Kč',
-    image: 'assets/Products/Krem.png',
+    image: 'assets/Products/lahvac.png',
     features: [
       'Dvoufázová emulze',
       '24hodinová hydratace',
@@ -33,7 +33,7 @@ const products = {
     name: 'Levander',
     description: 'Hydratační krém vyživuje a zanechává pleť jemnou. Levandule podporuje hydrataci a obnovuje kožní bariéru.',
     price: '459 Kč',
-    image: 'assets/Products/Krem.png',
+    image: 'assets/Products/masticka.png',
     features: [
       'Přírodní hydratační oleje',
       '24hodinová hydratace',
@@ -1084,6 +1084,7 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
 
 
 
