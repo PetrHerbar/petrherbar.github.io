@@ -29,7 +29,7 @@ const products = {
       'Vhodné pro všechny typy pleti'
     ]
   },
-  'krem': {
+  'krem2': {
     name: 'Levander',
     description: 'Hydratační krém vyživuje a zanechává pleť jemnou. Levandule podporuje hydrataci a obnovuje kožní bariéru.',
     price: '459 Kč',
@@ -1084,6 +1084,7 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
 
 
 
