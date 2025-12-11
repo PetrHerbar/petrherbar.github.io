@@ -21,7 +21,7 @@ const products = {
     name: 'Rosa',
     description: 'Odličovací voda, jemně čistí bez vysoušení. Růže pomáhá pleť zklidnit a hydratovat, díky čemuž se dobře hodí pro citlivou a suchou pleť.',
     price: '359 Kč',
-    image: 'assets/Products/lahvac.jng',
+    image: 'assets/Products/lahvac.jpg',
     features: [
       'Dvoufázová emulze',
       '24hodinová hydratace',
@@ -1084,6 +1084,7 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
 
 
 
