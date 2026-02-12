@@ -28,7 +28,8 @@ const products = {
       'Dvoufázová emulze',
       '24hodinová hydratace',
       'Antioxidanty z rostlin',
-      'Vhodné pro všechny typy pleti'
+      'Objem: 350 ml',
+      'Použití: Naneste na vatový tampon a jemně setřete make-up.'
     ]
   },
   'krem2': {
@@ -40,9 +41,9 @@ const products = {
     features: [
       'Přírodní hydratační oleje',
       '24hodinová hydratace',
-      'Antioxidanty z rostlin',
-      'Vhodné pro všechny typy pleti',
-      'Bez parabenů a silikonů'
+      'Lehký pocit na pleti',
+      'Objem: 150 ml',
+      'Použití: Jemně rozetřete malé množství o velikosti hrášku na obličej po odlíčení a toniku.'
     ]
   },
   'lahvac': {
@@ -55,7 +56,8 @@ const products = {
       '100% přírodní složení',
       'Bohatý na vitamíny',
       'Rychle se vstřebává',
-      'Jemná přírodní vůně'
+      'Objem: 75 ml',
+      'Použití: Malé množství o velikosti hrášku vmasírujte do dlaní, hřbetů ruky a prstů.'
     ]
   },
   'pudr': {
@@ -67,7 +69,9 @@ const products = {
     features: [
       'Dlouhodobé zakrytí',
       'Matný vzhled',
-      'Bez škodlivých chemikálií'
+      'Bez škodlivých chemikálií',
+      'Hmotnost: 11,5 g',
+      'Použití: Potřebné množství naneste na rty.'
     ]
   },
   'pudr2': {
@@ -79,7 +83,9 @@ const products = {
     features: [
       'Jemný přírodní lesk',
       'Dlouhodobé zakrytí',
-      'Přírodní bylinné složení'
+      'Přírodní bylinné složení',
+      'Hmotnost: 11,5 g',
+      'Použití: Potřebné množství naneste na rty.'
     ]
   },
   // Special Package Products
