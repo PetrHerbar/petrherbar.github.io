@@ -7,7 +7,7 @@ const products = {
   'facetoner': {
     name: 'Moony',
     description: 'Osvěžující tonikum, které dodává pleti svěžest a rovnováhu. Měsíček zklidňuje citlivá místa a podporuje přirozenou obnovu pokožky.',
-    'Použití: Naneste na vatový tampon nebo dlaní ',
+    'Použití: Naneste na vatový tampon nebo dlaní vklepte do pleti po odstranění make-upu.',
     price: 359,
     sleva: 15,
     image: 'assets/Products/moony.png',
