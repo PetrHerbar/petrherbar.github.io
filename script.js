@@ -6,16 +6,16 @@ function qsa(selector, scope) { return Array.from((scope || document).querySelec
 const products = {
   'facetoner': {
     name: 'Moony',
-    description: 'Osvěžující tonikum, které dodává pleti svěžest a rovnováhu. Měsíček zklidňuje citlivá místa a podporuje přirozenou obnovu pokožky. Použití: Naneste na vatový tampon nebo prsty a vklepte do pleti po odstranění make-upu.',
+    description: 'Osvěžující tonikum, které dodává pleti svěžest a rovnováhu. Měsíček zklidňuje citlivá místa a podporuje přirozenou obnovu pokožky.',
     price: 359,
     sleva: 15,
     image: 'assets/Products/moony.png',
     features: [
-      'Přírodní bylinné extrakty',
       'Bez alkoholu a sulfátů',
       'Vhodné pro citlivou pokožku',
       'Hydratuje a zklidňuje',
       'Objem: 350 ml'
+      'Použití: Naneste pomocí vatového tamponu nebo prsty a vklepte do pleti po odstranění make-upu.'
     ]
   },
   'krem': {
