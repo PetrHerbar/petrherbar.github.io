@@ -6,7 +6,8 @@ function qsa(selector, scope) { return Array.from((scope || document).querySelec
 const products = {
   'facetoner': {
     name: 'Moony',
-    description: 'Osvěžující tonikum, které dodává pleti svěžest a rovnováhu. Měsíček zklidňuje citlivá místa a podporuje přirozenou obnovu pokožky.',
+    description: 'Osvěžující tonikum, které dodává pleti svěžest a rovnováhu. Měsíček zklidňuje citlivá místa a podporuje přirozenou obnovu pokožky.'
+    'Použití: Po odstranění make-upu pro kompletní dočištění pleti a obnovení jejího pH.',
     price: 359,
     sleva: 15,
     image: 'assets/Products/moony.png',
