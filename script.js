@@ -14,7 +14,7 @@ const products = {
       'Bez alkoholu a sulfátů',
       'Vhodné pro citlivou pokožku',
       'Hydratuje a zklidňuje',
-      'Objem: 350 ml'
+      'Objem: 350 ml',
       'Použití: Naneste pomocí vatového tamponu nebo prsty a vklepte do pleti po odstranění make-upu.'
     ]
   },
