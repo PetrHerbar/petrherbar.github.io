@@ -93,7 +93,7 @@ const products = {
     description: 'Levandulové sérum intenzivně vyživuje řasy a podporuje jejich růst.',
     price: 899,
     sleva: null,
-    image: 'assets/Products/Pudr2.png',
+    image: 'assets/Products/viola.jpg',
     features: [
       'Výsledek viditelný již po prvním použití',
       'Šetrné složení'
