@@ -88,6 +88,20 @@ const products = {
       'Použití: Potřebné množství naneste na rty.'
     ]
   },
+   'serum': {
+    name: 'Violet',
+    description: 'Levandulové sérum intenzivně vyživuje řasy a podporuje jejich růst.',
+    price: 899,
+    sleva: null,
+    image: 'assets/Products/Pudr2.png',
+    features: [
+      'Výsledek viditelný již po prvním použití',
+      'Šetrné složení'
+      'Přírodní bylinná složka',
+      'Objem: 15ml',
+      'Použití: Malé množství naneste na kořínky řas.'
+    ]
+  },
   // Special Package Products
   'package-hydratace': {
     name: 'Balíček Hydratace',
