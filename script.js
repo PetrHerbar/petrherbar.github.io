@@ -88,7 +88,7 @@ const products = {
       'Použití: Potřebné množství naneste na rty.'
     ]
   },
-   'serum': {
+  'serum': {
     name: 'Violet',
     description: 'Levandulové sérum intenzivně vyživuje řasy a podporuje jejich růst.',
     price: 899,
@@ -96,7 +96,7 @@ const products = {
     image: 'assets/Products/viola.jpg',
     features: [
       'Výsledek viditelný již po prvním použití',
-      'Šetrné složení'
+      'Šetrné složení',
       'Přírodní bylinná složka',
       'Objem: 15ml',
       'Použití: Malé množství naneste na kořínky řas.'
@@ -110,6 +110,7 @@ const products = {
     sleva: null,
     image: 'assets/Products/masticka.jpg',
     isPackage: true,
+    special: true,
     features: [
       'Tonikum Moony',
       'Krém Levander',
@@ -125,6 +126,7 @@ const products = {
     sleva: null,
     image: 'assets/Products/lahvac.jpg',
     isPackage: true,
+    special: true,
     features: [
       'Odličovací voda Rosa',
       'Krém na ruce Makarnika',
@@ -139,6 +141,7 @@ const products = {
     sleva: null,
     image: 'assets/Products/moony.png',
     isPackage: true,
+    special: true,
     features: [
       'Všechny produkty',
       'Luxusní dárková krabice',
@@ -221,8 +224,11 @@ function renderSpecialPackages() {
   grid.innerHTML = '';
   const fragment = document.createDocumentFragment();
 
-  // Filter only package products
-  const packageProducts = Object.entries(products).filter(([id, product]) => product.isPackage);
+  // Filter only products marked as special (max 3)
+  const packageProducts = Object
+    .entries(products)
+    .filter(([id, product]) => product.special)
+    .slice(0, 3);
 
   packageProducts.forEach(([id, product]) => {
     const card = document.createElement('article');
