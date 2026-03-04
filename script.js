@@ -138,7 +138,7 @@ const products = {
     description: 'Luxusní sada pro každodenní péči o pánskou pleť.',
     price: 1799,
     sleva: null,
-    image: 'assets/Products/panove.jpg',
+    image: 'assets/Products/panove.JPG',
     isPackage: true,
     special: true,
     features: [
