@@ -102,52 +102,65 @@ const products = {
       'Použití: Malé množství naneste na kořínky řas.'
     ]
   },
+    'vani': {
+    name: 'Vanilla',
+    description: 'Vanilkový parfém',
+    price: 1499,
+    sleva: 10,
+    image: 'assets/Products/vanila.jpg',
+    features: [
+      'Jemné komplimentující aroma',
+      'Šetrné složení',
+      'Obsahuje výtažky z vanilkového lusku',
+      'Objem: 150ml',
+      'Použití: Aplikujte ideálně 2-3 střiky na pulzní body (krk, za uši, dekolt).'
+    ]
+  },
   // Special Package Products
   'package-hydratace': {
-    name: 'Balíček Hydratace',
-    description: 'Kompletní sada pro intenzivní hydrataci. Obsahuje tonikum Moony, hydratační krém Levander a balzám na rty Minty pro celodenní péči.',
-    price: 799,
+    name: 'Balíček Kompletní péče o pleť',
+    description: 'Speciální sada našich nejžádanějších prodktů, díky kterým se kompletně postaráte o svou pleť.',
+    price: 879,
     sleva: null,
     image: 'assets/Products/masticka.jpg',
     isPackage: true,
     special: true,
     features: [
-      'Tonikum Moony',
+      'Odličovací voda Rosa',
       'Krém Levander',
-      'Balzám Minty',
+      'Tonikum Moony',
       'Dárková krabička',
       'Úspora 25%'
     ]
   },
   'package-pece': {
-    name: 'Balíček Péče o pleť',
-    description: 'Luxusní sada pro každodenní péči o pleť. Obsahuje odličovací vodu Rosa a krém na ruce Makarnika pro hedvábně jemnou pokožku.',
-    price: 649,
+    name: 'Pánská sada',
+    description: 'Luxusní sada pro každodenní péči o pánskou pleť.',
+    price: 1799,
     sleva: null,
-    image: 'assets/Products/lahvac.jpg',
+    image: 'assets/Products/panove.jpg',
     isPackage: true,
     special: true,
     features: [
-      'Odličovací voda Rosa',
-      'Krém na ruce Makarnika',
-      'Kosmetická taštička',
-      'Úspora 20%'
+      'Čistící gel s aloe vera',
+      'Pleťové tonikum s mátou',
+      'Arganový olej na vousy',
+      'Hydratační krém s heřmánkem'
     ]
   },
   'package-komplet': {
-    name: 'Kompletní balíček',
-    description: 'Vše co potřebujete v jednom balení. Kompletní sada všech našich produktů za výhodnou cenu. Ideální dárek pro každou příležitost.',
-    price: 1299,
+    name: 'Lip care',
+    description: 'Spojení Lichi&Minty je naprosto neodolatelné!',
+    price: 299,
     sleva: null,
     image: 'assets/Products/moony.png',
     isPackage: true,
     special: true,
     features: [
-      'Všechny produkty',
-      'Luxusní dárková krabice',
-      'Osobní věnování',
-      'Doprava zdarma',
-      'Úspora 30%'
+      'Dlouho očekávaná sada',
+      'Jemné přírodní balzámy na rty',
+      'Dárková krabička',
+      'Úspora 20%'
     ]
   },
 
