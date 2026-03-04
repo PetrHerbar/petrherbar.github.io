@@ -118,8 +118,8 @@ const products = {
   },
   // Special Package Products
   'package-hydratace': {
-    name: 'Balíček Kompletní péče o pleť',
-    description: 'Speciální sada našich nejžádanějších prodktů, díky kterým se kompletně postaráte o svou pleť.',
+    name: 'Kompletní péče o pleť',
+    description: 'Speciální balíček našich nejžádanějších prodktů, díky kterým se kompletně postaráte o svou pleť.',
     price: 879,
     sleva: null,
     image: 'assets/Products/masticka.jpg',
