@@ -103,8 +103,8 @@ const products = {
     ]
   },
     'vani': {
-    name: 'Vanilla',
-    description: 'Vanilkový parfém',
+    name: 'Vani',
+    description: 'Vanilkový parfém s kokosem přinášející lehkost a jemnou eleganci.',
     price: 1499,
     sleva: 10,
     image: 'assets/Products/vanila.jpg',
@@ -116,13 +116,54 @@ const products = {
       'Použití: Aplikujte ideálně 2-3 střiky na pulzní body (krk, za uši, dekolt).'
     ]
   },
+     'coco': {
+    name: 'Coco',
+    description: 'Kakaový parfém ideální pro milovníky hlubších zemitých tónů.',
+    price: 1499,
+    sleva: null,
+    image: 'assets/Products/coco.jpg',
+    features: [
+      'Jemné komplimentující aroma',
+      'Šetrné složení',
+      'Obsahuje výtažky z kakaového bobu',
+      'Objem: 150ml',
+      'Použití: Aplikujte ideálně 2-3 střiky na pulzní body (krk, za uši, dekolt).'
+    ]
+  },
+       'citron': {
+    name: 'Citrus',
+    description: 'Mořská sůl s esenciálními oleji z citronu a máty pomáhá uvolnit svalové napětí a regenerovat unavenou pokožku.',
+    price: 499,
+    sleva: null,
+    image: 'assets/Products/citron.jpeg',
+    features: [
+      'Jemné přírodní aroma',
+      'Ekologické esenciální oleje',
+      'Hmotnost: 200g',
+      'Použití: Do teplé vody nasypte hrst soli a nechte rozpustit.'
+    ]
+  },
+        'kopřiva': {
+    name: 'Roots',
+    description: 'Bylinný šampon, který hloubkově čistí pokožku hlavy, zatímco přírodní extrakty vlasy vyživují a dodávájí jim oslnivý lesk.',
+    price: 499,
+    sleva: null,
+    image: 'assets/Products/kopřiva.jpg',
+    features: [
+      'Vhodné pro problematickou pokožku hlavy',
+      'Šetrné složení',
+      'Zaručený lesk na 48h',
+      'Objem: 250ml',
+      'Použití: Malé množství vmasírujte do mokrých vlasů a opláchněte vodou.'
+    ]
+  },
   // Special Package Products
   'package-hydratace': {
     name: 'Kompletní péče o pleť',
     description: 'Speciální balíček našich nejžádanějších prodktů, díky kterým se kompletně postaráte o svou pleť.',
     price: 879,
     sleva: null,
-    image: 'assets/Products/masticka.jpg',
+    image: 'assets/Products/komplet.png',
     isPackage: true,
     special: true,
     features: [
@@ -153,7 +194,7 @@ const products = {
     description: 'Spojení Lichi&Minty je naprosto neodolatelné!',
     price: 299,
     sleva: null,
-    image: 'assets/Products/moony.png',
+    image: 'assets/Products/lipcare.jpg',
     isPackage: true,
     special: true,
     features: [
